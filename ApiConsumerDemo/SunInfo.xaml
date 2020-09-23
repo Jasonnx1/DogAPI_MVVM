@@ -8,10 +8,10 @@
         Title="SunInfo" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <Button x:Name="loadSunInfo" Margin="20" Click="loadSunInfo_Click">
+            <Button x:Name="loadSunInfo" Margin="20" Command="{Binding SunInfoCommand}">
                 Télécharger les informations du soleil</Button>
-            <TextBlock x:Name="sunriseText" Margin="20"/>
-            <TextBlock x:Name="sunsetText" Margin="20"/>
+            <TextBlock x:Name="sunriseText" Margin="20" Text="{Binding LeveSoleil}"/>
+            <TextBlock x:Name="sunsetText" Margin="20" Text="{Binding CoucheSoleil}"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ApiConsumerDemo"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -14,11 +14,12 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="previousImageButton" Padding="15" Margin="15" Click="previousImageButton_Click">Précédent</Button>
-            <Button x:Name="sunInformationButton" Padding="15" Margin="15" Click="sunInformationButton_Click">Information du soleil</Button>
-            <Button x:Name="nextImageButton" Padding="15" Margin="15" Click="nextImageButton_Click">Suivant</Button>
+            <Button x:Name="previousImageButton" Padding="15" Margin="15" Command="{Binding PreviousComicCommand}">Précédent</Button>
+            <Button x:Name="sunInformationButton" Padding="15" Margin="15" Command="{Binding ShowSunInfoCommand}">Information du soleil</Button>
+            <Button x:Name="dogImageButton" Padding="15" Margin="15" Command="{Binding ShowDogWindowCommand}">Dog Images</Button>
+            <Button x:Name="nextImageButton" Padding="15" Margin="15" Command="{Binding NextComicCommand}">Suivant</Button>
         </StackPanel>
 
-        <Image Grid.Row="1" Name="comicImage" Margin="20"/>
+        <Image Grid.Row="1" Name="comicImage" Source="{Binding CurrentComic}" Margin="20"/>
     </Grid>
 </Window>

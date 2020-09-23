@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace DemoLibrary
 {
-    public class SunProcessor
+    public class DogProcessor
     {
 
-        public static async Task<SunModel> LoadSunInformation(double latitude = 46.7201600, double longitude = -72.4203400)
+        public static async Task<DogModel> LoadDogImage()
         {
             string url;
-           
-            url = $"https://api.sunrise-sunset.org/json?lat={latitude}&lng={longitude}&date=today";
-           
+
+            url = $"https://dog.ceo/api/breeds/image/random";
+
 
             using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    SunResultModel result = await response.Content.ReadAsAsync<SunResultModel>();
-                    return result.Results;
+                    DogModel result = await response.Content.ReadAsAsync<DogModel>();
+                    return result;
                 }
                 else
                 {
